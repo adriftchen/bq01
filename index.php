@@ -32,11 +32,11 @@
 				<?php
 
 					$do=(isset($_GET['do']))?$_GET['do']:'main';
-					$file=$do.".php";
+					$file="./front/".$do.".php";
 					if(file_exists($file)){
 						include $file;
 					}else{
-						include "main.php";
+						include "./front/main.php";
 					}
 
 
