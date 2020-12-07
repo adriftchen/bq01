@@ -28,7 +28,7 @@ $addstr=[
 class DB{
 
     protected $table;
-    protected $dsn="mysql:host=localhost;dbname=db99;charset=utf8";
+    protected $dsn="mysql:host=localhost;dbname=db09;charset=utf8";
     protected $pdo;
 
     function __construct($table){
