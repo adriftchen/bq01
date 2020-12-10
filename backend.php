@@ -90,7 +90,7 @@
 <!-- 此段剪下，建立至 backend/title.php，並增加php使這個區域可以替換檔案-->
                 <?php
 
-                $do=(isset($_GET['do']))?$_GET['do']:'title';
+                $do=(isset($_GET['do']))?$_GET['do']:'title'; /* 這裡的do來自於網址get到的欄位名稱 */
                 $file="./backend/".$do.".php";
                 if(file_exists($file)){
                     include $file;

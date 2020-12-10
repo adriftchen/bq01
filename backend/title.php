@@ -1,5 +1,5 @@
 <div style="width:99%; height:87%; margin:auto; overflow:auto; border:#666 1px solid;">
-    <p class="t cent botli"><?=$tstr[$do];?></p>
+    <p class="t cent botli"><?=$tstr[$do];?></p> <!-- 這裡的do來自於backend.php#93 網址get到的欄位值 -->
         <form method="post" action="./api/edit.php"> <!-- api/update.php已刪，這裡要改連結到api/edit.php -->
             <table width="100%">
                 <tbody>
@@ -22,7 +22,7 @@
                     <td width="7%"><input type="radio" name="sh" value="<?=$row['id'];?>" <?=($row['sh']==1)?'checked':'';?>></td>
                     <td width="7%"><input type="checkbox" name="del[]" value="<?=$row['id'];?>"></td>
                     <td><input type="button" value="更新圖片" onclick="op('#cover','#cvr','./modal/upload.php?table=<?=$do;?>&id=<?=$row['id'];?>')"></td>
-                    <input type="hidden" name="id[]" value="<?=$row['id'];?>">
+                    <input type="hidden" name="id[]" value="<?=$row['id'];?>"> <!-- 添加隱藏欄位，辨識id用 -->
                 </tr>
                 <?php
                     }
