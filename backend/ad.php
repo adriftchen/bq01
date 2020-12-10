@@ -15,9 +15,10 @@
                 foreach($rows as $row){
                 ?>
                 <tr>
-                <td ><input type="text" name="text[]" value="<?=$row['text'];?>"></td>
+                <td ><input type="text" name="text[]" value="<?=$row['text'];?>" style="width:95%"></td>
                 <td ><input type="checkbox" name="sh[]" value="<?=$row['id'];?>" <?=($row['sh']==1)?'checked':'';?>></td> <!--type改checkbox 可多選，同時sh改sh[]陣列形式，表示可存多筆資料 -->
                 <td ><input type="checkbox" name="del[]" value="<?=$row['id'];?>"></td>
+                <input type="hidden" name="id[]" value="<?=$row['id'];?>">
                 </tr>
                 <?php
                     }
