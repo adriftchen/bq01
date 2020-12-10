@@ -1,6 +1,6 @@
 <?php
 include "../base.php";
-
+// print_r($_POST); 要檢查可先關掉to()，先print_r出來看
 $table=$_POST['table'];
 $db=new DB($table);
 
