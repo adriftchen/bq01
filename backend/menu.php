@@ -9,7 +9,7 @@
                     <td width="10%">次選單數</td>
                     <td width="5%">顯示</td>
                     <td width="5%">刪除</td>
-                    <td width="10%"></td>
+                    <td></td>
 
                 </tr>
                 <?php
@@ -18,8 +18,12 @@
                 foreach($rows as $row){
                 ?>
                 <tr>
-                <td ><input type="text" name="acc[]" value="<?=$row['acc'];?>" style="width:95%"></td>
-                <td ><input type="password" name="pw[]" value="<?=$row['pw'];?>"></td>
+                <td ><input type="text" name="text[]" value="<?=$row['text'];?>" style="width:95%"></td>
+                <td ><input type="text" name="href[]" value="<?=$row['href'];?>" style="width:95%"></td>
+                <td></td>
+                <td ><input type="checkbox" name="sh[]" value="<?=$row['id'];?>" <?=($row['sh']==1)?'checked':'';?>></td>
+                <td ><input type="checkbox" name="del[]" value="<?=$row['id'];?>" style="width:95%"></td>
+                <td ><input type="button" value="編輯次選單" onclick="op('#cover','#cvr','./modal/submenu.php?table=<?=$do;?>&id=<?=$row['id'];?>')"></td>
                 <td ></td>
                 <input type="hidden" name="id[]" value="<?=$row['id'];?>"> <!-- 要有這行隱藏欄位，edit.php內的switch case會用到 -->
                 </tr>

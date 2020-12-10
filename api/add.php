@@ -31,7 +31,9 @@ if(!empty($_POST['text'])){
             $data['pw']=$_POST['pw'];
         break;
         case "menu":
-
+            $data['text']=$_POST['text']; /* 可略，上面已有寫過 */
+            $data['href']=$_POST['href'];
+            $data['sh']=1; /* 這裡要新增此行，預設是不顯示的 */
         break;
         default:
         $data['sh']=1;

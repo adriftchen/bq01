@@ -1,19 +1,16 @@
-<h3>新增管理者帳號</h3>
+<h3>新增主選單</h3>
 <hr>
 <form action="api/add.php" method="post" enctype="multipart/form-data">
 <table>
     <tr>
-        <td>帳號:</td>
-        <td><input type="text" name="acc" id=""></td>
+        <td>主選單文字</td>
+        <td><input type="text" name="text" id=""></td>
     </tr>
     <tr>
-        <td>密碼:</td>
-        <td><input type="pssword" name="pw" id=""></td>
+        <td>主選單連結</td>
+        <td><input type="text" name="href" id=""></td>
     </tr>
-    <tr>
-        <td>確認密碼:</td>
-        <td><input type="pssword" name="pw2" id=""></td>
-    </tr>
+    
     <tr>
         <td colspan="2">
             <input type="hidden" name="table" value="<?=$_GET['table'];?>">

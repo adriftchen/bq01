@@ -19,11 +19,9 @@ foreach($_POST['id'] as $key => $id){
             case"title":
                 $row['sh']=($id==$_POST['sh'])?1:0;
             break;
-            case"ad": /* 拿掉break，讓case ad、mvim都執行一樣的程式 */
-            case"mvim":
-            case"image":
-            case"news":
-                $row['sh']=(in_array($id,$_POST['sh']))?1:0;
+            case "menu":
+                
+                $row['href']=$_POST['href'][$key];
             break;
             case "total":
                 $row['total']=$_POST['total'];
@@ -35,8 +33,24 @@ foreach($_POST['id'] as $key => $id){
                 $row['acc']=$_POST['acc'][$key];
                 $row['pw']=$_POST['pw'][$key];
             break;
+            default:
+            $row['sh']=(in_array($id,$_POST['sh']))?1:0;
+            
 
         }
+           /* 
+        case "total":
+            $row['total']=$_POST['total'];
+        break;
+        case "bottom":
+            $row['bottom']=$_POST['bottom'];
+        break; 
+        
+        可以改寫成
+        case "total":
+        case "bottom":    
+            $row['$table]=$_POST[$table];
+        break; */
 
         //已宣告欄位，即使沒有值還是會有該欄位，如此會有進站人數會有noitce訊息，fixed>要加判斷式
         if(!empty($_POST['text'])){
