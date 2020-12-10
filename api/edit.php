@@ -18,11 +18,9 @@ foreach($_POST['id'] as $key => $id){
             case"title":
                 $row['sh']=($id==$_POST['sh'])?1:0;
             break;
-            case"ad":
-                $row['sh']=(in_array($id,$_POST['sh']))?1:0;
-            break;
+            case"ad": /* 拿掉break，讓case ad、mvim都執行一樣的程式 */
             case"mvim":
-
+                $row['sh']=(in_array($id,$_POST['sh']))?1:0;
             break;
 
         }
