@@ -22,6 +22,7 @@ foreach($_POST['id'] as $key => $id){
             case"ad": /* 拿掉break，讓case ad、mvim都執行一樣的程式 */
             case"mvim":
             case"image":
+            case"news":
                 $row['sh']=(in_array($id,$_POST['sh']))?1:0;
             break;
             case "total":
