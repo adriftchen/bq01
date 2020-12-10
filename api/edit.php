@@ -38,7 +38,7 @@ foreach($_POST['id'] as $key => $id){
 
         }
 
-        //已宣告欄位，即使沒有值還是會有該欄位，如此會有進站人數如此會有noitce，fixed>要加判斷式
+        //已宣告欄位，即使沒有值還是會有該欄位，如此會有進站人數會有noitce訊息，fixed>要加判斷式
         if(!empty($_POST['text'])){
 
         $row['text']=$_POST['text'][$key];
