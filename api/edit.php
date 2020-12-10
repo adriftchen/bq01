@@ -1,6 +1,7 @@
 <?php
 include "../base.php";
-// print_r($_POST); 要檢查可先關掉to()，先print_r出來看
+// print_r($_POST); 
+//要檢查可先關掉to()，先print_r出來看
 $table=$_POST['table'];
 $db=new DB($table);
 
@@ -23,10 +24,17 @@ foreach($_POST['id'] as $key => $id){
             case"image":
                 $row['sh']=(in_array($id,$_POST['sh']))?1:0;
             break;
+            case "total":
+                $row['total']=$_POST['total'];
+            break;
 
         }
-        $row['text']=$_POST['text'][$key];
 
+        //已宣告欄位，即使沒有值還是會有該欄位，如此會有進站人數如此會有noitce，fixed>要加判斷式
+        if(!empty($_POST['text'])){
+
+        $row['text']=$_POST['text'][$key];
+        }
         $db->save($row);
 
     }

@@ -18,7 +18,7 @@
                 <tr>
                     <td class="cent"><img src="./img/<?=$row['img'];?>" style="width:100px;height:75px"></td>
                     
-                    <td><input type="checkbox" name="sh" value="<?=$row['id'];?>" <?=($row['sh']==1)?'checked':'';?>></td>
+                    <td><input type="checkbox" name="sh[]" value="<?=$row['id'];?>" <?=($row['sh']==1)?'checked':'';?>></td>
                     <td><input type="checkbox" name="del[]" value="<?=$row['id'];?>"></td>
                     <td><input type="button" value="更換動畫" onclick="op('#cover','#cvr','./modal/upload.php?table=<?=$do;?>&id=<?=$row['id'];?>')"></td>
                     <input type="hidden" name="id[]" value="<?=$row['id'];?>"> <!-- 添加隱藏欄位，辨識id用 -->
