@@ -11,8 +11,15 @@
                     </tr>
                     <!-- 增加php程式，有些參數需寫成陣列形式如text[]，不然異動的資料會被最後的那筆蓋過去，都只顯示一筆 -->
                     <?php
-                $rows=$Image->all();
-
+                
+                $all=$Image->count(['sh'=>1]);
+                $div=3;
+                $pages=ceil($all/$div);
+                $now=(isset($_GET['p']))?$_GET['p']:1;
+                //$now=(isset($_GET['p']))??1;
+                $start=($now-1)*$div;
+                
+                $rows=$Image->all(" limit $start,$div");
                 foreach($rows as $row){
                 ?>
                 <tr>
@@ -28,6 +35,37 @@
                 ?>
                 </tbody>
             </table>
+            <div class="cent">
+            
+            <?php
+            if(($now-1)>0){
+            ?>
+            <a class="bl" style="font-size:30px;" href="?do=image&p=<?=$now-1;?>">&lt;&nbsp;</a>
+            <?php
+            }
+            ?>
+                <?php
+                    for($i=1;$i<=$pages;$i++){
+                        if($i==$now){
+                            $font="40px"; //當前頁
+                        }else{
+                            $font="30px";
+                        }
+                        echo "<a href='?do=news&p=$i' style='font-size:$font;text-decoration:none'>";
+                        echo $i;
+                        echo "</a>";
+
+                    }
+                ?>
+            <?php
+            if($now+1<=$pages){
+            ?>
+            <a class="bl" style="font-size:30px;" href="?do=image&p=<?=$now+1;?>">&nbsp;&gt;</a>
+            <?php
+            }
+            ?>
+            
+        </div>
             <table style="margin-top:40px; width:70%;">
                 <tbody>
                     <tr>
