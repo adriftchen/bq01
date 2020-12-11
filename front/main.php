@@ -11,22 +11,19 @@
                                                         </div>
                     </div>
 										<script>
-
+									var lin=new Array();
 									<?php
 									//製作動畫圖的路徑
 									$str=[]; //先宣告成空陣列，底下才能執行
 									$mvims=$Mvim->all(['sh'=>1]);
 									foreach ($mvims as $key => $mvim){
 										// echo "<img src='img/{$mvim['img']}'  style='width:99%; height:100%; position:relative;'>";
-										$str[]="'img/{$mvim['img']}'";
+										echo "lin.push('img/{$mvim['img']}')\n";
 
 									}
 									
 
 									?>
-						//把動畫圖的路徑搬上去，改var lin=[]
-            // var lin=['img/01C01.gif','img/01C02.gif','img/01C03.gif']; 
-						var lin=[<?=implode(',',$str);?>];
 						var now=0;
 						if(lin.length>1)
 						{
