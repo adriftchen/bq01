@@ -1,9 +1,25 @@
+<?php include_once "base.php"; ?>
 <div class="di" style="height:540px; border:#999 1px solid; width:53.2%; margin:2px 0px 0px 0px; float:left; position:relative; left:20px;">
 	<?php include "marquee.php";?>
                     <div style="height:32px; display:block;"></div>
                                         <!--正中央-->
                                         <script>
-                    	var lin=new Array();
+
+									<?php
+									//製作動態圖的路徑
+									$str=[]; //先宣告成空陣列，底下才能執行
+									$mvims=$Mvim->all(['sh'=>1]);
+									foreach ($mvims as $key => $mvim){
+										// echo "<img src='img/{$mvim['img']}'  style='width:99%; height:100%; position:relative;'>";
+										$str[]="'img/{$mvim['img']}'";
+
+									}
+									
+
+									?>
+						//把動態圖的路徑搬上去，改var lin=[]
+            // var lin=['img/01C01.gif','img/01C02.gif','img/01C03.gif']; 
+						var lin=[<?=implode(',',$str);?>];
 						var now=0;
 						if(lin.length>1)
 						{
@@ -15,13 +31,14 @@
 							$("#mwww").html("<embed loop=true src='"+lin[now]+"' style='width:99%; height:100%;'></embed>")
 							//$("#mwww").attr("src",lin[now])
 							now++;
-							if(now>=lin.length)
+							if(now>=lin.length) 
 							now=0;
 						}
                     </script>
                 	<div style="width:100%; padding:2px; height:290px;">
                     	<div id="mwww" loop="true" style="width:100%; height:100%;">
                         	                                <div style="width:99%; height:100%; position:relative;" class="cent">沒有資料</div>
+								
                                                         </div>
                     </div>
                 	<div style="width:95%; padding:2px; height:190px; margin-top:10px; padding:5px 10px 5px 10px; border:#0C3 dashed 3px; position:relative;">
