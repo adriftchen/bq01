@@ -53,14 +53,14 @@
 											3.150px * 103px
 
 											 -->
-											 <div class='cent' onclick="pp(1)" > <!-- 此div為block，inline -->
+											 <div class='cent' onclick="pp(1)" style="margin:5px 0"> <!-- 此div為block，inline -->
 											 	<img src="icon/up.jpg" alt="">
 											 </div>
 											<?php
 												$imgs=$Image->all(['sh'=>1]);
 
 											foreach ($imgs as $key => $img){
-												echo "<div class='cent im' id='ssaa$key'><img src='img/{$img['img']}' style='width:150px;height:103px'></div>";
+												echo "<div class='cent im' id='ssaa$key'><img src='img/{$img['img']}' style='width:150px;height:103px;border:orange 3px solid;margin:3px 0'></div>";
 											
 											}
 
@@ -75,7 +75,7 @@
 								var s,t; //var 在script是全域變數，let在script是區域變數
 								if(x==1 && nowpage-1>=0) //nowpage起始值為1
 								{nowpage--;} //1-0=0，從0開始
-								if(x==2&&(nowpage+1)*3<=num*1+3)
+								if(x==2&&(nowpage+1)<=num-3)
 								{nowpage++;}
 								$(".im").hide() //所有class="im" 都先隱藏
 								for(s=0;s<=2;s++) //s=0,1,2
