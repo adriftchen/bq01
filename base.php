@@ -150,6 +150,10 @@ function to($url){
     header("location:".$url);
 }
 
+// function paginate{
+
+// }
+
 //base打完先到db建一張資料表title>text,id,img,sh，並令$Title=new DB("title")...
 //測完記得關掉全部指令!!
 
