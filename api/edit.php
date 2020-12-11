@@ -20,7 +20,7 @@ foreach($_POST['id'] as $key => $id){
                 $row['sh']=($id==$_POST['sh'])?1:0;
             break;
             case "menu":
-                
+                $row['sh']=(in_array($id,$_POST['sh']))?1:0;
                 $row['href']=$_POST['href'][$key];
             break;
             case "total":
