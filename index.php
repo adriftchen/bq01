@@ -47,24 +47,45 @@
                 	<button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;" onclick="lo(&#39;?do=admin&#39;)">管理登入</button>
                 	<div style="width:89%; height:480px;" class="dbor">
                     	<span class="t botli">校園映象區</span>
-						                        <script>
-                        	var nowpage=0,num=0;
+											<!-- 顯示圖片
+											1.從image資料夾撈出設定為顯示的圖片
+											2.讓圖片顯示在index/校園映像區
+											3.150px * 103px
+
+											 -->
+											 <div class='cent' onclick="pp(1)" > <!-- 此div為block，inline -->
+											 	<img src="icon/up.jpg" alt="">
+											 </div>
+											<?php
+												$imgs=$Image->all(['sh'=>1]);
+
+											foreach ($imgs as $key => $img){
+												echo "<div class='cent im' id='ssaa$key'><img src='img/{$img['img']}' style='width:150px;height:103px'></div>";
+											
+											}
+
+												?>	
+												<div class='cent' onclick="pp(2)">
+											 	<img src="icon/dn.jpg" alt="">
+											 </div>							
+						  <script> 
+							var nowpage=0,num=<?=$Image->count(['sh'=>1]);?>;
 							function pp(x)
 							{
-								var s,t;
-								if(x==1&&nowpage-1>=0)
-								{nowpage--;}
+								var s,t; //var 在script是全域變數，let在script是區域變數
+								if(x==1 && nowpage-1>=0) //nowpage起始值為1
+								{nowpage--;} //1-0=0，從0開始
 								if(x==2&&(nowpage+1)*3<=num*1+3)
 								{nowpage++;}
-								$(".im").hide()
-								for(s=0;s<=2;s++)
+								$(".im").hide() //所有class="im" 都先隱藏
+								for(s=0;s<=2;s++) //s=0,1,2
 								{
 									t=s*1+nowpage*1;
-									$("#ssaa"+t).show()
+									$("#ssaa"+t).show() //字串相加 ssaa0 ssaa1 ssaa2
 								}
 							}
 							pp(1)
-                        </script>
+              </script>
                     </div>
                 </div>
                             </div>
