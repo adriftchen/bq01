@@ -32,7 +32,7 @@
 
 							<div class="mainmu">
 								<a style="color:#000; font-size:13px; text-decoration:none;" href="<?=$main['href'];?>"><?=$main['text'];?></a>
-								<div class="mw">
+								<div class="mw" style="display:none;position:relative;top:-5px;z-index:98;width:150px;margin-left:100px"> <!-- 主要寫到display:none即可，調整選單版面-->
 								<?php 
 
 									if($Menu->count(['parent'=>$main['id']])>0){

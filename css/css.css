@@ -75,6 +75,9 @@ body
 	line-height:30px;
 	padding:2px 10px 2px 10px;
 	margin:7px 1px 7px 1px;
+	height: 30px; /* css內可直接打h30->enter */
+	width: 150px;
+
 }
 .mainmu:hover
 {
@@ -89,7 +92,9 @@ body
 	background-size:100% 100%;
 	line-height:30px;
 	padding:2px 10px 2px 10px;
-	margin:7px 1px 7px 1px;
+	margin:7px 1px 7px 100px;
+	z-index: 99;
+	width: 150px;
 }
 .mainmu2:hover
 {
