@@ -24,8 +24,33 @@
              	<div id="lf" style="float:left;">
             		<div id="menuput" class="dbor">
                     <!--主選單放此-->
-                    	                            <span class="t botli">主選單區</span>
-                                                </div>
+                    <span class="t botli">主選單區</span>
+						<?php
+							$mainmu=$Menu->all(['sh'=>1,'parent'=>0]);
+							foreach($mainmu as $main){
+						?>
+
+							<div class="mainmu">
+								<a style="color:#000; font-size:13px; text-decoration:none;" href="<?=$main['href'];?>"><?=$main['text'];?></a>
+								<div class="mw">
+								<?php 
+
+									if($Menu->count(['parent'=>$main['id']])>0){
+										$subs=$Menu->all(['parent'=>$main['id']]);
+										foreach($subs as $sub){
+
+									?>
+									<a style="color:#000; font-size:13px; text-decoration:none;" href="<?=$sub['href'];?>">
+										<div class="mainmu2"><?=$sub['text'];?></div>
+									</a>
+									<?php
+										}
+									}
+									?>
+								</div>
+						</div>
+						<?php } ;?>
+                    </div>
                     <div class="dbor" style="margin:3px; width:95%; height:20%; line-height:100px;">
                     <span class="t">進站總人數 : <?=$Total->find(1)['total'];?></span>
                     </div>
