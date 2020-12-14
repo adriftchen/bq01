@@ -16,6 +16,7 @@ $(document).ready(function(e) {
 function lo(x)
 {
 	location.replace(x)
+	//同location.href
 }
 function op(x,y,url)
 {

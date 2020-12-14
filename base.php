@@ -32,6 +32,7 @@ $uploadimg=[
 
 ];
 
+
 class DB{
 
     protected $table;
@@ -180,5 +181,16 @@ $Bottom=new DB("bottom");
 $News=new DB("news");
 $Admin=new DB("admin");
 $Menu=new DB("menu");
+
+//進站總人數，寫在變數宣告之後
+if(empty($_SESSION['total'])){
+    $total=$Total->find(1);
+    // $total['total']=$total['total']+1;同下
+    $total['total']++;
+    $Total->save($total);
+    $_SESSION['total']=$total['total'];
+
+    
+}
 
 ?> 
