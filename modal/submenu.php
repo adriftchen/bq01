@@ -34,6 +34,7 @@ $subs=$Menu->all(['parent'=>$_GET['id']]);
     <tr id="btn">
         <td colspan="2">
             <input type="hidden" name="table" value="<?=$_GET['table'];?>">
+            <input type="hidden" name="parent" value="<?=$_GET['id'];?>"> <!-- 增加此行，這邊的parent id 要給api/editsub.php 內的判斷式新增與否用的 -->
             <input type="submit" value="修改確定">
             <input type="reset" value="重置">
             <input type="button" value="更多次選單" onclick="more()">
