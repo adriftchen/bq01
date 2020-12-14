@@ -13,7 +13,7 @@
 
                 </tr>
                 <?php
-                $rows=$Menu->all();
+                $rows=$Menu->all(['parent'=>0]); //增加'parent'=>0的條件，使頁面只顯示parent的選單
 
                 foreach($rows as $row){
                 ?>
@@ -23,9 +23,9 @@
                 <td></td>
                 <td ><input type="checkbox" name="sh[]" value="<?=$row['id'];?>" <?=($row['sh']==1)?'checked':'';?>></td>
                 <td ><input type="checkbox" name="del[]" value="<?=$row['id'];?>" style="width:95%"></td>
-                <td ><input type="button" value="編輯次選單" onclick="op('#cover','#cvr','./modal/submenu.php?table=<?=$do;?>&id=<?=$row['id'];?>')"></td>
+                <td ><input type="button" value="編輯次選單" onclick="op('#cover','#cvr','./modal/submenu.php?table=<?=$do;?>&id=<?=$row['id'];?>')"></td> <!-- ajax背景作業，用get方式拿id，畫面不會跳動-->
                 <td ></td>
-                <input type="hidden" name="id[]" value="<?=$row['id'];?>"> <!-- 要有這行隱藏欄位，edit.php內的switch case會用到 -->
+                <input type="hidden" name="id[]" value="<?=$row['id'];?>"> <!-- 用post方式從前端拿id，畫面會跳一下-->
                 </tr>
                 <?php
                     }

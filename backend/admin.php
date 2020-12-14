@@ -13,6 +13,9 @@
                 $rows=$Admin->all();
 
                 foreach($rows as $row){
+                    if($row['acc']!='admin'){
+
+                    
                 ?>
                 <tr>
                 <td ><input type="text" name="acc[]" value="<?=$row['acc'];?>" style="width:95%"></td>
@@ -21,6 +24,7 @@
                 <input type="hidden" name="id[]" value="<?=$row['id'];?>"> <!-- 要有這行隱藏欄位，edit.php內的switch case會用到 -->
                 </tr>
                 <?php
+                        }
                     }
                 ?>
             </tbody>
