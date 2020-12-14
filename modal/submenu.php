@@ -31,15 +31,31 @@ $subs=$Menu->all(['parent'=>$_GET['id']]);
     <?php
         }
     ?>
-    <tr>
+    <tr id="btn">
         <td colspan="2">
             <input type="hidden" name="table" value="<?=$_GET['table'];?>">
             <input type="submit" value="修改確定">
             <input type="reset" value="重置">
-            <input type="button" value="更多次選單">
+            <input type="button" value="更多次選單" onclick="more()">
         </td>
     </tr>
 </table>
-    
-    
 </form>
+
+<script>
+funciton more(){
+    let str=`
+
+    <tr>
+    
+        <td><input type="text" name="text2[]" value=""></td> 
+        <td><input type="text" name="href2[] value=""></td> 
+        <td></td>
+    </tr>
+    `
+    $("#btn").before(str)
+}
+
+</script>
+    
+    
