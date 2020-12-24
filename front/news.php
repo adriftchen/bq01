@@ -1,6 +1,8 @@
 <div class="di" style="height:540px; border:#999 1px solid; width:53.2%; margin:2px 0px 0px 0px; float:left; position:relative; left:20px;">
             <?php include "marquee.php";?>
                     <div style="height:32px; display:block;"></div>
+                    <span class="t botli">更多最新消息顯示區</span>
+
 
             <?php
             //此段變數可以快速複製到需要做分頁的檔案
@@ -16,7 +18,7 @@
             <?php
 				$news=$News->all(["sh"=>1]," limit $start,$div");
 				foreach($news as $key => $n){
-					echo "<li>".mb_substr($n['text'],0,25);
+					echo "<li class='sswww'>".mb_substr($n['text'],0,25);
 					echo "<div class='all' style='display:none'>{$n['text']}</div>";
 					echo "</li>";
 				}
