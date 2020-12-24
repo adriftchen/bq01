@@ -4,7 +4,7 @@ include_once "../base.php";
 // print_r($_POST);
 
 foreach($_POST['id'] as $key=>$id){
-  if(!isset($_POST['del']) && in_array($id,$_POST['del'])){
+  if(isset($_POST['del']) && in_array($id,$_POST['del'])){
     $Menu->del($id); //此頁面只對menu作用，不需要前面指定$table=..、$db=..然後還從 $db->del($id)
   }else{
   $sub=$Menu->find($id);

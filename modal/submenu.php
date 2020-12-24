@@ -12,7 +12,7 @@ $subs=$Menu->all(['parent'=>$_GET['id']]);
 ?>
 <h3>編輯次選單</h3>
 <hr>
-<form action="api/editsub.php" method="post" enctype="multipart/form-data">
+<form action="./api/editsub.php" method="post" enctype="multipart/form-data">
 <table>
     <tr>
         <td>次選單文字</td>
@@ -23,10 +23,10 @@ $subs=$Menu->all(['parent'=>$_GET['id']]);
     foreach($subs as $sub){
     ?>
     <tr>
-        <td><input type="text" name="text[]" value="<?$sub['text'];?>"></td> <!-- 此行由上面tr往上移，調整版面--> 
-        <td><input type="text" name="href[]" value="<?$sub['href'];?>"></td> 
-        <td><input type="checkbox" name="del[]" id="" value="<?$sub['id']?>;"></td> <!-- 增加刪除checkbox -->
-        <input type="hidden" name="id[]" value="<?$sub['id'];?>">
+        <td><input type="text" name="text[]" value="<?=$sub['text'];?>"></td> <!-- 此行由上面tr往上移，調整版面--> 
+        <td><input type="text" name="href[]" value="<?=$sub['href'];?>"></td> 
+        <td><input type="checkbox" name="del[]" id="" value="<?=$sub['id'];?>"></td> <!-- 增加刪除checkbox -->
+        <input type="hidden" name="id[]" value="<?=$sub['id'];?>">
     </tr>
     <?php
         }
@@ -44,7 +44,7 @@ $subs=$Menu->all(['parent'=>$_GET['id']]);
 </form>
 
 <script>
-funciton more(){
+function more(){
     let str=`
 
     <tr>
